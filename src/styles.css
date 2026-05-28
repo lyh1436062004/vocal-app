@@ -1,0 +1,210 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: #0f1220;
+  color: #e6e8f0;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-top: env(safe-area-inset-top, 16px);
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.app h1 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.tabs button {
+  background: #1c2040;
+  color: #cfd2e8;
+  border: 1px solid #2a2f55;
+  border-radius: 999px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.tabs button.active {
+  background: linear-gradient(135deg, #5b6cff, #8a5bff);
+  color: white;
+  border-color: transparent;
+}
+
+.card {
+  background: #161a32;
+  border: 1px solid #232851;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* 钢琴 */
+.piano {
+  position: relative;
+  height: 180px;
+  user-select: none;
+  display: flex;
+  width: 100%;
+  background: #0a0c1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.white-key {
+  flex: 1;
+  border-right: 1px solid #2a2f55;
+  background: linear-gradient(180deg, #fafafa, #d8d8e0);
+  color: #444;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  font-size: 11px;
+  cursor: pointer;
+  position: relative;
+}
+.white-key:hover { background: linear-gradient(180deg, #fff, #c8d0ff); }
+.white-key.active { background: linear-gradient(180deg, #b8c2ff, #7c8aff); color: white; }
+.black-key {
+  position: absolute;
+  top: 0;
+  width: 4%;
+  height: 60%;
+  background: linear-gradient(180deg, #2a2a3a, #0c0c18);
+  color: #ddd;
+  font-size: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+  cursor: pointer;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+.black-key.active { background: linear-gradient(180deg, #5b6cff, #2a3aff); }
+
+/* 音高反馈 */
+.pitch-feedback {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.pitch-box {
+  background: #0e1228;
+  border: 1px solid #232851;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+.pitch-box .label { font-size: 12px; color: #8b90c0; }
+.pitch-box .value { font-size: 28px; font-weight: 600; margin-top: 6px; }
+
+.gauge {
+  margin-top: 16px;
+  height: 60px;
+  background: #0e1228;
+  border-radius: 12px;
+  position: relative;
+  border: 1px solid #232851;
+  overflow: hidden;
+}
+.gauge .center-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #4cffaf;
+  opacity: 0.6;
+}
+.gauge .needle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #ffd166;
+  border-radius: 2px;
+  transition: left 80ms linear;
+}
+.gauge .scale {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-size: 10px;
+  color: #6b6f96;
+}
+
+.btn {
+  background: linear-gradient(135deg, #5b6cff, #8a5bff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #2a2f55;
+  color: #cfd2e8;
+}
+.btn.danger {
+  background: linear-gradient(135deg, #ff5b6c, #ff8a5b);
+}
+
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+.status {
+  font-size: 14px;
+  color: #8b90c0;
+  margin: 8px 0;
+}
+.status .ok { color: #4cffaf; }
+.status .high { color: #ff8a5b; }
+.status .low { color: #5bb1ff; }
+
+input[type="file"] {
+  color: #cfd2e8;
+  font-size: 13px;
+}
+
+canvas.viz {
+  display: block;
+  width: 100%;
+  height: 220px;
+  background: #0a0c1a;
+  border-radius: 8px;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #8b90c0;
+  margin-top: 8px;
+}
+.legend .dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}

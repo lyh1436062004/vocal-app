@@ -1,0 +1,31 @@
+{
+  "name": "vocal-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "声乐练习 - 音高测试与合唱跟唱",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cap:sync": "npx cap sync",
+    "cap:open": "npx cap open android",
+    "android": "vite build && npx cap sync android && npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/core": "6.2.0",
+    "@capacitor/filesystem": "6.0.2",
+    "pitchy": "4.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tone": "15.0.4"
+  },
+  "devDependencies": {
+    "@capacitor/android": "6.2.0",
+    "@capacitor/cli": "6.2.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "sharp": "^0.34.5",
+    "typescript": "^6.0.3",
+    "vite": "5.4.11"
+  }
+}

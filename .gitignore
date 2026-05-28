@@ -1,0 +1,26 @@
+# Node
+node_modules/
+dist/
+.vite/
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Capacitor / Android 构建产物
+android/app/build/
+android/build/
+android/.gradle/
+android/captures/
+android/local.properties
+android/app/release/
+android/.idea/
+*.iml
+*.keystore
+*.jks
+
+# OS
+.DS_Store
+Thumbs.db

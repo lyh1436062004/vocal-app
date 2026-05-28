@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="180" fill="#0f1a2a"/>
+  <!-- Tuning fork -->
+  <g transform="translate(512,512)" stroke="#c8d0e0" stroke-width="28" fill="none" stroke-linecap="round">
+    <!-- Prongs -->
+    <path d="M-60,-280 L-60,-60 Q-60,20 0,20 Q60,20 60,-60 L60,-280"/>
+    <!-- Handle -->
+    <line x1="0" y1="20" x2="0" y2="320"/>
+    <!-- Ball -->
+    <circle cx="0" cy="330" r="22" fill="#c8d0e0"/>
+  </g>
+  <!-- Sound waves -->
+  <g transform="translate(512,350)" stroke="#5b6cff" stroke-width="8" fill="none" opacity="0.6">
+    <path d="M-180,0 Q-180,-80 -120,-120"/>
+    <path d="M-220,0 Q-220,-120 -140,-170"/>
+    <path d="M180,0 Q180,-80 120,-120"/>
+    <path d="M220,0 Q220,-120 140,-170"/>
+  </g>
+  <!-- Music note -->
+  <g transform="translate(512,750)" fill="#4cffaf">
+    <ellipse cx="0" cy="0" rx="20" ry="14" transform="rotate(-20)"/>
+    <rect x="14" y="-60" width="5" height="60"/>
+    <path d="M19,-60 Q40,-70 30,-45 Q20,-30 19,-40" fill="#4cffaf"/>
+  </g>
+  <!-- Gauge arc -->
+  <path d="M262,200 A300,300 0 0,1 762,200" stroke="#3a4070" stroke-width="6" fill="none"/>
+</svg>
